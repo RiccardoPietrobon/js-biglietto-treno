@@ -6,9 +6,24 @@
 // L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
 //RICHIESTA KM
-const userDistance = prompt('Quanti km vuoi percorrere?')
-console.log = ('Distanza', userDistance)
+const userDistance = prompt('Quanti km vuoi percorrere?');
+console.log = ('Distanza', userDistance);
 
 //RICHIESTA ETA'
-const userAge = prompt('Quanti anni hai?')
+const userAge = prompt('Quanti anni hai?');
 
+//calcolo prezzo in base ai km
+const priceBase = 0.21 * userDistance;
+
+//ticket in base all'età
+if (userAge < 18) {
+    ticket_1 = Math((priceBase * 80) / 100);
+} else if (18 < userAge < 65) {
+    ticket_1 = priceBase;
+} else if (userAge > 65) {
+    ticket_1 = Math((priceBase * 60) / 100);
+}
+
+//final ticket
+finalTicket = ticket_1.toFixed(2);
+document.getElementById('prezzo_biglietto_finale').innerHTML = ('Il prezzo del biglietto sarà di € ' + finalTicket);
