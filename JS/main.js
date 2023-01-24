@@ -7,23 +7,27 @@
 
 //RICHIESTA KM
 const userDistance = prompt('Quanti km vuoi percorrere?');
-console.log = ('Distanza', userDistance);
+console.log('Distanza ', userDistance);
 
 //RICHIESTA ETA'
 const userAge = prompt('Quanti anni hai?');
+console.log('Età ', userAge);
 
 //calcolo prezzo in base ai km
 const priceBase = 0.21 * userDistance;
+console.log('Prezzo biglietto ', priceBase);
 
 //ticket in base all'età
 if (userAge < 18) {
-    ticket_1 = Math((priceBase * 80) / 100);
+    ticket_1 = ((priceBase * 80) / 100);
+    console.log('Prezzo biglietto finale ', ticket_1.toFixed(2));
 } else if (18 < userAge < 65) {
     ticket_1 = priceBase;
+    console.log('Prezzo biglietto finale ', ticket_1.toFixed(2));
 } else if (userAge > 65) {
-    ticket_1 = Math((priceBase * 60) / 100);
+    ticket_1 = ((priceBase * 60) / 100);
+    console.log('Prezzo biglietto finale ', ticket_1.toFixed(2));
 }
 
 //final ticket
-finalTicket = ticket_1.toFixed(2);
-document.getElementById('prezzo_biglietto_finale').innerHTML = ('Il prezzo del biglietto sarà di € ' + finalTicket);
+document.getElementById('prezzo_biglietto_finale').innerHTML = 'Il prezzo del biglietto sarà di € ', ticket_1;
